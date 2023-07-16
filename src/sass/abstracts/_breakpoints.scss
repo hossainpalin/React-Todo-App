@@ -1,0 +1,46 @@
+// Extra Small devices (Screen Size 475px)
+$breakpoint-xs: 475px;
+
+// Small devices (Screen Size 576px)
+$breakpoint-sm: 640px;
+
+// Medium devices (Screen Size 768px)
+$breakpoint-md: 768px;
+
+// Large devices (Screen Size 1024px)
+$breakpoint-lg: 1024px;
+
+// X-Large devices (Screen Size 1280px)
+$breakpoint-xl: 1280px;
+
+// XX-Large devices (Screen Size 1536px)
+$breakpoint-xxl: 1536px;
+
+// All Breakpoints Mixin
+@mixin breakpoint($size) {
+  @if $size == xs {
+    @media (min-width: $breakpoint-xs) {
+      @content;
+    }
+  } @else if $size == sm {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $size == md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $size == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $size == xl {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $size == xxl {
+    @media (min-width: $breakpoint-xxl) {
+      @content;
+    }
+  }
+}

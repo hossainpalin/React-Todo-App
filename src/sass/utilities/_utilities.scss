@@ -1,0 +1,47 @@
+// All Display Flex Property Here
+
+.flex {
+  display: flex;
+}
+
+.flex-row-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row-start {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex-row-end {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-col-center {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-col-start {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.flex-col-end {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+  align-items: center;
+}

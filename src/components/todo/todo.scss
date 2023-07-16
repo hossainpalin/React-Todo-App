@@ -1,0 +1,77 @@
+@use '../../sass/abstracts' as *;
+@use '../../sass/utilities' as *;
+
+.todo-items {
+  width: 100%;
+  height: auto;
+  padding: 1rem 1rem 0 1rem;
+
+  .todo {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    border-radius: 10px;
+    border: solid 1px var(--base-tertiary);
+    background-color: var(--base-primary);
+
+    & input {
+      width: 20px;
+      height: 20px;
+      appearance: none;
+      border-radius: 50%;
+      background-color: var(--base-tertiary);
+      cursor: pointer;
+    }
+
+    & input:checked {
+      background-color: var(--layout-secondary);
+    }
+
+    .task-title {
+      margin-left: 1rem;
+
+      & h3 {
+        font-size: 1.4rem;
+        font-weight: var(--font-weight-500);
+        color: var(--text-primary);
+        margin-bottom: 0.2rem;
+      }
+
+      & p {
+        font-size: 1rem;
+        font-weight: var(--font-weight-300);
+        color: var(--text-secondary);
+        margin-bottom: 0;
+      }
+    }
+
+    .task-btn {
+      gap: 1rem;
+      & button {
+        width: 35px;
+        height: 35px;
+        border: none;
+        border-radius: 50px;
+        color: var(--base-primary);
+        background-color: var(--layout-primary);
+        transition: 0.2s ease-in-out;
+
+        &:nth-child(1):hover {
+          transition: 0.2s ease-in-out;
+          color: var(--text-primary);
+          background-color: var(--button-hover-three);
+        }
+
+        &:nth-child(2):hover {
+          transition: 0.2s ease-in-out;
+          color: var(--text-primary);
+          background-color: var(--button-hover-two);
+        }
+      }
+    }
+  }
+
+  &:nth-last-child(1) {
+    padding-bottom: 1rem;
+  }
+}

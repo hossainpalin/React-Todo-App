@@ -1,0 +1,18 @@
+@use '../../sass/abstracts' as *;
+@use '../../sass/utilities' as *;
+
+.todo-wrapper {
+  width: 100%;
+  height: 100vh;
+  font-family: var(--poppins-font);
+  background-color: var(--base-primary);
+
+  .todo-container {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    border-radius: 10px;
+    border: solid 1px var(--base-tertiary);
+    background-color: var(--base-secondary);
+  }
+}

@@ -1,0 +1,55 @@
+@use '../../sass/abstracts' as *;
+@use '../../sass/utilities' as *;
+
+.add-todo-container {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: solid 1px var(--base-tertiary);
+  background-color: var(--base-secondary);
+
+  .add-todo {
+    width: 100%;
+    height: auto;
+
+    & input {
+      width: 100%;
+      font-size: 1.2rem;
+      padding: 0.8rem;
+      border-radius: 10px;
+      border: solid 1px var(--base-tertiary);
+      color: var(--text-primary);
+      background-color: var(--base-primary);
+
+      &:focus {
+        border: solid 1px var(--text-secondary);
+      }
+      &::placeholder {
+        font-size: 1rem;
+      }
+    }
+
+    & button {
+      width: 100px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.8rem;
+      border: none;
+      margin-left: 1rem;
+      border-radius: 10px;
+      transition: 0.2s ease-in-out;
+      color: var(--text-primary);
+      background-color: var(--layout-secondary);
+
+      &:hover {
+        transition: 0.2s ease-in-out;
+        background-color: var(--layout-tertiary);
+      }
+    }
+  }
+}
