@@ -6,8 +6,8 @@ const getLocalStorage = () => {
   if (todoList) {
     return JSON.parse(todoList);
   }
-  const emptyArr = window.localStorage.setItem('todoList', []);
-  return emptyArr;
+  window.localStorage.setItem('todoList', []);
+  return [];
 };
 
 // Initial value
@@ -72,29 +72,15 @@ export const todoSlice = createSlice({
       const todoList = window.localStorage.getItem('todoList');
       if (todoList) {
         const todoListArr = JSON.parse(todoList);
-        todoListArr.forEach((todo, index) => {
-          if (todo.id === action.payload) {
-            todoListArr.splice(index, 1);
-          }
-        });
-        window.localStorage.setItem('todoList', JSON.stringify(todoListArr));
-        state.todoList = todoListArr;
+        const newTodoList = todoListArr.filter((todo) => todo.id !== action.payload);
+        window.localStorage.setItem('todoList', JSON.stringify(newTodoList));
+        state.todoList = newTodoList;
       }
     },
 
     updateFilterStatus: (state, action) => {
       state.filterStatus = action.payload;
     },
-
-    // deleteTodo: (state, action) => {
-    //   const todoList = window.localStorage.getItem('todoList');
-    //   if (todoList) {
-    //     const todoListArr = JSON.parse(todoList);
-    //     const newTodoList = todoListArr.filter((todo) => todo.id !== action.payload);
-    //     window.localStorage.setItem('todoList', JSON.stringify(newTodoList));
-    //     state.todoList = newTodoList;
-    //   }
-    // },
   },
 });
 

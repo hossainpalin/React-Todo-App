@@ -6,9 +6,10 @@ export const TaskContext = createContext();
 export function TaskProvider({ children }) {
   const [addTask, setAddTask] = useState();
   const [toggleButton, setToggleButton] = useState(true);
+  const [type, setType] = useState('add');
 
   const value = useMemo(() => ({
-    addTask, setAddTask, toggleButton, setToggleButton,
+    addTask, setAddTask, toggleButton, setToggleButton, type, setType,
   }));
 
   return (

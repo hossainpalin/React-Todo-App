@@ -12,9 +12,8 @@ import Input from './Input';
 
 function TodoInput() {
   const [status, setStatus] = useState('pending');
-  const [type, setType] = useState('add');
   const {
-    addTask, setAddTask, toggleButton, setToggleButton,
+    addTask, setAddTask, toggleButton, setToggleButton, type, setType,
   } = useContext(TaskContext);
 
   const todoList = useSelector((state) => state.todo.todoList);

@@ -12,7 +12,7 @@ import CheckBox from './CheckBox';
 function TodoList({ todo }) {
   const [checked, setChecked] = useState(false);
   const {
-    setAddTask, setType, setToggleButton,
+    setAddTask, setToggleButton, setType,
   } = useContext(TaskContext);
   const dispatch = useDispatch();
 
