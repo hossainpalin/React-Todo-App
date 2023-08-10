@@ -1,0 +1,15 @@
+// Base styles are here
+@forward './base/font-face.scss';
+
+// Remove reset and typography after using Bootstrap or Tailwind CSS
+@forward './base/reset.scss';
+@forward './base/typography.scss';
+
+// All variables and mixins are here
+@forward './abstracts/colors.scss';
+@forward './abstracts/type.scss';
+@forward './abstracts/breakpoints.scss';
+@forward './abstracts/mixins.scss';
+
+// All utilities classes are here
+@forward './utilities/utilities.scss';

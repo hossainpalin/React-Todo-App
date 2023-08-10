@@ -1,0 +1,69 @@
+.todoList {
+  width: 100%;
+  height: auto;
+  padding: 1rem 1rem 0 1rem;
+
+  .task {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--layout-secondary);
+    box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.1);
+    background-color: var(--layout-secondary);
+
+    .taskTitle {
+      margin-left: 1rem;
+
+      & h3 {
+        font-size: 1.3rem;
+        font-weight: var(--font-weight-400);
+        color: var(--text-primary);
+        margin-bottom: 0.2rem;
+      }
+
+      & p {
+        font-size: 1rem;
+        font-weight: var(--font-weight-300);
+        color: var(--text-secondary);
+        margin-bottom: 0;
+      }
+    }
+
+    .actionButton {
+      gap: 1rem;
+      & button {
+        width: 35px;
+        height: 35px;
+        padding: 0;
+        border: none;
+        border-radius: 50px;
+        color: var(--base-primary);
+        background-color: var(--base-tertiary);
+        transition: 0.2s ease-in-out;
+
+        &:nth-child(1):hover {
+          transition: 0.2s ease-in-out;
+          color: var(--text-tertiary);
+          background-color: var(--button-success);
+        }
+
+        &:nth-child(2):hover {
+          transition: 0.2s ease-in-out;
+          color: var(--text-tertiary);
+          background-color: var(--button-danger);
+        }
+      }
+    }
+
+    &:hover {
+      transition: 0.2s ease;
+      background-color: var(--base-hover);
+    }
+  }
+
+  .taskConmlepe {
+    transition: 0.2s ease;
+    border: 1px solid var(--border-primary);
+  }
+}

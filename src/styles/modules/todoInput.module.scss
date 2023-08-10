@@ -1,0 +1,40 @@
+.todoInput {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  padding: 1rem;
+
+  & input {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 1px solid var(--layout-secondary);
+    color: var(--text-primary);
+    background-color: var(--layout-secondary);
+
+    &:focus {
+      border: 1px solid var(--base-primary);
+    }
+    &::placeholder {
+      font-size: 1rem;
+    }
+  }
+
+  & button {
+    width: 100px;
+    height: 55px;
+    font-size: 1.8rem;
+    border: none;
+    margin-left: 1rem;
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+    color: var(--text-primary);
+    background-color: var(--layout-tertiary);
+
+    &:hover {
+      transition: 0.2s ease-in-out;
+      background-color: var(--base-tertiary);
+    }
+  }
+}

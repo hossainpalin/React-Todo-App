@@ -9,6 +9,9 @@
     "sourceType": "module"
   },
   "rules": {
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "no-param-reassign": "off",
     "react/forbid-prop-types": "off"
   }
 }
