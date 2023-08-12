@@ -7,9 +7,10 @@ export function TaskProvider({ children }) {
   const [addTask, setAddTask] = useState();
   const [toggleButton, setToggleButton] = useState(true);
   const [type, setType] = useState('add');
+  const [todo, setTodo] = useState([]);
 
   const value = useMemo(() => ({
-    addTask, setAddTask, toggleButton, setToggleButton, type, setType,
+    addTask, setAddTask, toggleButton, setToggleButton, type, setType, todo, setTodo,
   }));
 
   return (

@@ -9,11 +9,11 @@ function TodoStatusBar() {
   const dispatch = useDispatch();
   const todo = useSelector((state) => state.todo.todoList);
 
-  // Todo item counter
+  // Todo lenght filter
   const pendingTodoList = todo.filter((item) => item.status === 'pending');
   const completeTodoList = todo.filter((item) => item.status === 'complete');
 
-  // handle toggle function
+  // Handle toggle function
   const handleToggle = (value) => {
     setToggle(value);
   };

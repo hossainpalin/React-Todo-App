@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
@@ -12,10 +13,11 @@ import CheckBox from './CheckBox';
 function TodoList({ todo }) {
   const [checked, setChecked] = useState(false);
   const {
-    setAddTask, setToggleButton, setType,
+    setAddTask, setToggleButton, setType, setTodo,
   } = useContext(TaskContext);
   const dispatch = useDispatch();
 
+  // Task status check onload
   useEffect(() => {
     if (todo.status === 'complete') {
       setChecked(true);
@@ -30,6 +32,9 @@ function TodoList({ todo }) {
     dispatch(
       updateTodo({ ...todo, status: checked ? 'pending' : 'complete' }),
     );
+    if (!checked) {
+      toast.success('Task complete successfully');
+    }
   };
 
   // Task update function
@@ -37,12 +42,14 @@ function TodoList({ todo }) {
     setAddTask(todo.task);
     setType('update');
     setToggleButton(false);
+    setTodo(todo);
   };
 
   // Task delete function
   const handleDelete = () => {
     dispatch(deleteTodo(todo.id));
     toast.success('Task delete successfully');
+    setToggleButton(true);
   };
 
   return (
@@ -58,7 +65,7 @@ function TodoList({ todo }) {
           {/* Task title here */}
           <div className={`${Styles.taskTitle} flex flex-col-start`}>
             <h3>{todo.task}</h3>
-            <p>{todo.time}</p>
+            <p>{format(new Date(todo.time), `${'hh:mm:ss a'} | ${'dd-MMM-yyyy'}`)}</p>
           </div>
         </div>
 

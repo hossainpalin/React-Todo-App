@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { BiPlusCircle } from 'react-icons/bi';
 import { FiArrowUpCircle } from 'react-icons/fi';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 import { TaskContext } from '../contexts/TaskContext';
 import { addTodo, updateTodo } from '../features/todoSlice';
@@ -12,15 +12,10 @@ import Input from './Input';
 
 function TodoInput() {
   const [status, setStatus] = useState('pending');
-  const {
-    addTask, setAddTask, toggleButton, setToggleButton, type, setType,
-  } = useContext(TaskContext);
-
-  const todoList = useSelector((state) => state.todo.todoList);
-  const sortedTodoList = [...todoList].sort((a, b) => new Date(b.time) - new Date(a.time));
-  const [todo] = sortedTodoList.map((item) => item);
-
   const dispatch = useDispatch();
+  const {
+    addTask, setAddTask, toggleButton, setToggleButton, type, setType, todo,
+  } = useContext(TaskContext);
 
   // Handle check function
   useEffect(() => {
@@ -51,7 +46,9 @@ function TodoInput() {
 
       if (type === 'update') {
         if (todo.task !== addTask) {
-          dispatch(updateTodo({ ...todo, task: addTask, status }));
+          dispatch(updateTodo({
+            id: todo.id, task: addTask, status, time: todo.time,
+          }));
           toast.success('Task updated successfully');
         } else {
           toast.error('Task already exist');

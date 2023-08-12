@@ -8,7 +8,7 @@ function TodoContent() {
   const todoList = useSelector((state) => state.todo.todoList);
   const sortedTodoList = [...todoList].sort((a, b) => new Date(b.time) - new Date(a.time));
 
-  // Filter status
+  // Filter todo status
   const filterStatus = useSelector((state) => state.todo.filterStatus);
   const filteredTodoList = sortedTodoList.filter((item) => {
     if (filterStatus === 'all') {

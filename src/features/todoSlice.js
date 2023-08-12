@@ -35,36 +35,18 @@ export const todoSlice = createSlice({
       }
     },
 
-    // updateTodo: (state, action) => {
-    //   const todoList = window.localStorage.getItem('todoList');
-    //   if (todoList) {
-    //     const todoListArr = JSON.parse(todoList);
-    //     const newTodoList = todoListArr.filter((todo) => todo.id === action.payload.id);
-    //     if (newTodoList) {
-    //       newTodoList[0].id = action.payload.id;
-    //       newTodoList[0].task = action.payload.task;
-    //       newTodoList[0].status = action.payload.status;
-    //       newTodoList[0].time = action.payload.time;
-    //     }
-    //     window.localStorage.setItem('todoList', JSON.stringify(newTodoList));
-    //     state.todoList = newTodoList;
-    //   }
-    // },
-
     updateTodo: (state, action) => {
       const todoList = window.localStorage.getItem('todoList');
       if (todoList) {
         const todoListArr = JSON.parse(todoList);
         todoListArr.forEach((todo) => {
           if (todo.id === action.payload.id) {
-            todo.id = action.payload.id;
             todo.task = action.payload.task;
             todo.status = action.payload.status;
-            todo.time = action.payload.time;
           }
         });
         window.localStorage.setItem('todoList', JSON.stringify(todoListArr));
-        state.todoList = [...todoListArr];
+        state.todoList = todoListArr;
       }
     },
 
