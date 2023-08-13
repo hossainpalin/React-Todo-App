@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
@@ -9,6 +10,15 @@ import { deleteTodo, updateTodo } from '../features/todoSlice';
 import Styles from '../styles/modules/todoList.module.scss';
 import Button from './Button';
 import CheckBox from './CheckBox';
+
+// Framer motion
+const taskAnimation = {
+  hidden: { y: 10, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
 function TodoList({ todo }) {
   const [checked, setChecked] = useState(false);
@@ -53,8 +63,13 @@ function TodoList({ todo }) {
   };
 
   return (
-    <div className={`${Styles.todoList} flex flex-row-center`}>
-      <div className={`${Styles.task} ${checked && Styles.taskConmlepe} flex justify-space-between`}>
+    <motion.div
+      className={`${Styles.todoList} flex flex-row-center`}
+      variants={taskAnimation}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div className={`${Styles.task} ${checked && Styles.taskConmlepe} flex justify-space-between`}>
 
         {/* Task display here */}
         <div className="flex flex-row-center">
@@ -64,7 +79,7 @@ function TodoList({ todo }) {
 
           {/* Task title here */}
           <div className={`${Styles.taskTitle} flex flex-col-start`}>
-            <h3>{todo.task}</h3>
+            <h3 className={checked ? Styles.complete : null}>{todo.task}</h3>
             <p>{format(new Date(todo.time), `${'hh:mm:ss a'} | ${'dd-MMM-yyyy'}`)}</p>
           </div>
         </div>
@@ -79,8 +94,8 @@ function TodoList({ todo }) {
           <Button onClick={() => handleDelete()}><MdDelete /></Button>
         </div>
 
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 

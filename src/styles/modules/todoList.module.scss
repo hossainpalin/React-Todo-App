@@ -20,6 +20,11 @@
         font-weight: var(--font-weight-400);
         color: var(--text-primary);
         margin-bottom: 0.2rem;
+
+        &.complete {
+          text-decoration: line-through;
+          color: var(--text-secondary);
+        }
       }
 
       & p {

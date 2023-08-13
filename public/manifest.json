@@ -1,0 +1,8 @@
+{
+  "short_name": "React Todo App",
+  "name": "Todo App - by hossainPalin",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#186dff",
+  "background_color": "#ffe0b2"
+}
